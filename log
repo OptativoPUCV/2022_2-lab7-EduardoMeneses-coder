@@ -2,3 +2,45 @@ Mon 17 Oct 2022 01:06:47 AM UTC:
  tests:  0|4
 total_score: 0/70
 7184e0a
+Mon 17 Oct 2022 01:20:10 AM UTC: 
+ heap.c | 47 +++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 47 insertions(+)
+In file included from test.c:4:
+heap.c:40:7: error: redefinition of ‘heap_top’
+   40 | void* heap_top(Heap* pq){
+      |       ^~~~~~~~
+heap.c:20:7: note: previous definition of ‘heap_top’ was here
+   20 | void* heap_top(Heap* pq){
+      |       ^~~~~~~~
+heap.c:47:6: error: redefinition of ‘heap_push’
+   47 | void heap_push(Heap* pq, void* data, int priority){
+      |      ^~~~~~~~~
+heap.c:26:6: note: previous definition of ‘heap_push’ was here
+   26 | void heap_push(Heap* pq, void* data, int priority){
+      |      ^~~~~~~~~
+heap.c:65:6: error: redefinition of ‘heap_pop’
+   65 | void heap_pop(Heap* pq){
+      |      ^~~~~~~~
+heap.c:31:6: note: previous definition of ‘heap_pop’ was here
+   31 | void heap_pop(Heap* pq){
+      |      ^~~~~~~~
+test.c: In function ‘heap_pop’:
+test.c:276:5: error: ‘main’ is normally a non-static function [-Werror=main]
+  276 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:292:1: error: expected declaration or statement at end of input
+  292 | }
+      | ^
+test.c:12:6: error: unused variable ‘msg’ [-Werror=unused-variable]
+   12 | char msg[300];
+      |      ^~~
+At top level:
+test.c:276:5: error: ‘main’ defined but not used [-Werror=unused-function]
+  276 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:6:8: error: ‘_strdup’ defined but not used [-Werror=unused-function]
+    6 | char * _strdup(const char * str) {
+      |        ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+a9b30b7
